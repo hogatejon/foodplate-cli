@@ -5,6 +5,10 @@ footer {
   border-top: 3px solid #000;
 }
 
+img {
+  cursor: pointer;
+}
+
 footer > * {
   padding: 0 1em;
 }

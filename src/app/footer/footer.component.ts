@@ -25,6 +25,10 @@ export class FooterComponent implements OnInit {
     }
   }
 
+  moreInfo() {
+    alert('for more info see choosemyplate.gov');
+  }
+
   private versionStringToNumber(version: string) {
     return parseInt(version.split('.').join(''), 10);
   }
