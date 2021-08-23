@@ -4,3 +4,20 @@ footer {
   bottom: 0;
   border-top: 3px solid #000;
 }
+
+footer > * {
+  padding: 0 1em;
+}
+
+.footer--update {
+  color: red;
+  font-weight: bold;
+  background-color: white;
+  border: solid black 1px;
+  padding: 0.35rem;
+  border-radius: .20rem;
+}
+
+.footer--update::after {
+  content: ' Update Needed!';
+}
