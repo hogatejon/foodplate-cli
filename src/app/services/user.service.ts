@@ -14,7 +14,7 @@ export class UserService {
     'M',
     '18-25',
     'M18-25', {}, {
-    fruitMet: false,
+    fruitMet: true,
     vegMet: false,
     proteinMet: false,
     grainMet: false,
