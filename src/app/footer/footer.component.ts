@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   altText: string = 'FoodPlate Logo';
-  appVersionString: string = '1.0.0';
+  appVersionString: string = '1.0.1';
   appVersionNum: number = this.versionStringToNumber(this.appVersionString);
   icon: string = 'assets/images/icons/icons-29.png';
   isCurrent: boolean = true;

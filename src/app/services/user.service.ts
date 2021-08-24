@@ -8,12 +8,17 @@ import { User } from '../models/User';
 })
 export class UserService {
 
-  private user: User = new User(1, 'Jonathan', 'M', '18-25', 'M18-25', {}, {
+  private user: User = new User(
+    1,
+    'Jonathan',
+    'M',
+    '18-25',
+    'M18-25', {}, {
     fruitMet: false,
     vegMet: false,
     proteinMet: false,
     grainMet: false,
-  }, false, 'hogatejon@gmail.com')
+  }, true, 'hogatejon@gmail.com')
 
   constructor(@Optional() private readonly userStatusService: UserStatusService) {
     this.userStatusService.getUserStatus(this.user);
