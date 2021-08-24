@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { User } from 'src/assets/code-snippets/User';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'fp-app',
@@ -8,9 +10,13 @@ import { Title } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  constructor(private titleService: Title) { }
+  user: User;
+
+  constructor(private readonly titleService: Title,
+              private readonly userService: UserService) { }
 
   ngOnInit() {
     this.titleService.setTitle('Welcome to FoodPlate!');
+    this.user = this.userService.getUser();
   }
 }
