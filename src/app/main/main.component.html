@@ -1,4 +1,8 @@
 <main>
-  <fp-plate [user]="user"></fp-plate>
-  <fp-home-btn [user]="user"></fp-home-btn>
+  <!-- <fp-plate [user]="user"></fp-plate> -->
+  <router-outlet></router-outlet>
+  <a routerLink="register">
+    <fp-home-btn [user]="user"
+                 [hidden]="this.router.url === '/register'"></fp-home-btn>
+  </a>
 </main>

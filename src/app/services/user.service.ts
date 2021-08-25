@@ -18,7 +18,7 @@ export class UserService {
     vegMet: false,
     proteinMet: false,
     grainMet: false,
-  }, true, 'hogatejon@gmail.com')
+  }, false, 'hogatejon@gmail.com')
 
   constructor(@Optional() private readonly userStatusService: UserStatusService) {
     this.userStatusService.getUserStatus(this.user);
