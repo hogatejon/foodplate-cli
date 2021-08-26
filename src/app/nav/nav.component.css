@@ -9,7 +9,8 @@ ul {
   align-items:center;
   justify-content:center;
 }
-li {
+
+li > a {
   color: #fff;
   text-decoration: none;
   display:inline;
@@ -21,14 +22,22 @@ li {
   cursor: pointer;
 }
 
+li:hover {
+  transform: scale(1.05);
+}
 
-.active {
+li {
+  transition: all 0.2s ease-in-out;
+}
+
+li > a.active {
   color: #ef952b;
 }
 
 li:last-child {
   background: none;
 }
+
 @media (max-width: 444px) {
   ul {
       height: auto;
@@ -36,6 +45,7 @@ li:last-child {
       margin: 0;
       padding: 0;
   }
+
   li {
       background: none;
       margin: .15em;

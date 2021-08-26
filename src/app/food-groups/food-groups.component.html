@@ -3,5 +3,6 @@
        src="{{ group.icon }}"
        alt="{{ group.name + ' icon' }}"
        [class.is-first]="isFirst"
-       [class.is-last]="isLast">
+       [class.is-last]="isLast"
+       (click)="showGroup(group)">
 </section>

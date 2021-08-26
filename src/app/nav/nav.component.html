@@ -1,13 +1,16 @@
 <nav>
   <ul>
-    <li [ngClass]="{ 'active': isActive}">
-      <a routerLink="food-plate">My Food Plate</a>
+    <li>
+      <a routerLink="food-plate" routerLinkActive="active">My Food Plate</a>
     </li>
     <li>
-      <a routerLink="farmers-markets">Farmer's Markets</a>
+      <a routerLink="food-groups" routerLinkActive="active">Food Groups</a>
     </li>
     <li>
-      <a routerLink="exercises">Exercises</a>
+      <a routerLink="farmers-markets" routerLinkActive="active">Farmer's Markets</a>
+    </li>
+    <li>
+      <a routerLink="exercises" routerLinkActive="active">Exercises</a>
     </li>
   </ul>
 </nav>
