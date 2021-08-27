@@ -1,14 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { User } from '../models/User';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'fp-plate',
   templateUrl: './plate.component.html',
   styleUrls: ['./plate.component.css']
 })
-export class PlateComponent implements OnInit {
+export class PlateComponent implements OnInit, OnDestroy {
 
-  @Input() user: User;
+  currentUser: User;
+  ngDestroyed$ = new Subject();
 
   plateImgPath: string = '../../assets/images/plateImages/';
   fruitEmpty: string = `${this.plateImgPath}fruit-empty.png`;
@@ -21,10 +25,17 @@ export class PlateComponent implements OnInit {
   vegFull: string = `${this.plateImgPath}veg-full.jpg`;
 
 
-  constructor() { }
+  constructor(private readonly userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUser();
+    this.userService.currentUser.pipe(takeUntil(this.ngDestroyed$)).subscribe((user) => {
+      this.currentUser = user;
+    });
+  }
 
+  ngOnDestroy(): void {
+    this.ngDestroyed$.next();
   }
 
 

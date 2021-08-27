@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
     this.userService.currentUser.pipe(takeUntil(this.ngDestroyed$)).subscribe(user => {
       this.currentUser = user;
     });
+
     this.registerForm.valueChanges.pipe(takeUntil(this.ngDestroyed$)).subscribe(value => {
       console.log(value);
     });

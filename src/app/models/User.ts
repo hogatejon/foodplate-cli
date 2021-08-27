@@ -1,6 +1,6 @@
 export class User {
   id: number;
-  name: string;
+  firstName: string;
   gender: string;
   ageGroup: string;
   userCode: string;
@@ -21,7 +21,7 @@ export class User {
 
   constructor(id, name, gender, ageGroup, userCode, reqs, reqsStatus, registered, email) {
       this.id = id;
-      this.name = name;
+      this.firstName = name;
       this.gender = gender;
       this.ageGroup = ageGroup;
       this.userCode = userCode;

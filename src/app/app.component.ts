@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { User } from 'src/assets/code-snippets/User';
+import { Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { User } from './models/User';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -10,17 +12,16 @@ import { UserService } from './services/user.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  // user: User;
   currentUser: User;
+  ngDestroyed$ = new Subject();
 
   constructor(private readonly titleService: Title,
               private readonly userService: UserService) { }
 
   ngOnInit() {
     this.titleService.setTitle('Welcome to FoodPlate!');
-    // this.user = this.userService.getUser();
     this.userService.getUser();
-    this.userService.currentUser.subscribe(user => {
+    this.userService.currentUser.pipe(take(1)).subscribe((user) => {
       this.currentUser = user;
     });
   }

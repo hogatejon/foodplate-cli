@@ -9,6 +9,14 @@ img, .goal {
   cursor: pointer;
 }
 
+.goal {
+  transition: all 0.2s ease-in-out;
+}
+
+.goal:hover {
+  transform: scale(0.9);
+}
+
 footer > * {
   padding: 0 1em;
 }
