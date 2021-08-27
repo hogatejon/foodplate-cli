@@ -7,6 +7,7 @@ import { FarmersMarketsComponent } from './farmers-markets/farmers-markets.compo
 import { foodGroupsRoutes } from './food-groups/food-groups-routing.module';
 import { PlateComponent } from './plate/plate.component';
 import { RegisterComponent } from './register/register.component';
+import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
 
 const fallBackRoute: Route = {
   path: '**',
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'exercises', component: ExercisesComponent },
       { path: 'farmers-markets', component: FarmersMarketsComponent },
       { path: 'food-plate', component: PlateComponent },
+      { path: 'todays-goal', component: TodaysGoalComponent },
       ...foodGroupsRoutes,
       fallBackRoute
     ]

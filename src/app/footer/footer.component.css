@@ -5,7 +5,7 @@ footer {
   border-top: 3px solid #000;
 }
 
-img {
+img, .goal {
   cursor: pointer;
 }
 

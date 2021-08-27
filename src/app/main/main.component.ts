@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
 
   router: Router;
 
-  @Input() user: User;
+  user: User;
 
   constructor(private _router: Router) {
     this.router = _router;

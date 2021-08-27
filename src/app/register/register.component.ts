@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { User } from '../models/User';
 import { UserService } from '../services/user.service';
@@ -18,6 +20,7 @@ export class RegisterComponent implements OnInit {
     '9-13', '14-18', '19-30', '31-50', '51+'
   ];
   registerForm: FormGroup;
+  ngDestroyed$ = new Subject();
 
   constructor(private readonly fb: FormBuilder,
               private readonly router: Router,
@@ -30,25 +33,22 @@ export class RegisterComponent implements OnInit {
       'gender': [null, Validators.required],
       'ageGroup': [null, Validators.required]
     }, {updateOn: 'blur'});
+
+    this.userService.currentUser.pipe(takeUntil(this.ngDestroyed$)).subscribe(user => {
+      this.currentUser = user;
+    });
+    this.registerForm.valueChanges.pipe(takeUntil(this.ngDestroyed$)).subscribe(value => {
+      console.log(value);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.ngDestroyed$.next();
   }
 
   onSubmit() {
-    if (this.registerForm.valid) {
-      const currentUser: User = this.registerForm.value;
-      this.currentUser = currentUser;
-      console.log(this.registerForm.value);
-      this.currentUser.id = 1;
-      this.currentUser.registered = true;
-      this.currentUser.reqsStatus = {
-        fruitMet: false,
-        vegMet: false,
-        proteinMet: false,
-        grainMet: false
-      },
-      localStorage.setItem('user', JSON.stringify(currentUser));
-    } else {
-
-    }
+    this.userService.updateUser(this.registerForm.value);
+    UserService.storeLocalUser(this.registerForm.value);
   }
 
 }

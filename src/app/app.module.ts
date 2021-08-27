@@ -18,6 +18,7 @@ import { FarmersMarketsComponent } from './farmers-markets/farmers-markets.compo
 
 import { AppRoutingModule } from './app-routing.module';
 import { FoodGroupsModule } from './food-groups/food-groups.module';
+import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FoodGroupsModule } from './food-groups/food-groups.module';
     RegisterComponent,
     DefaultComponent,
     ExercisesComponent,
-    FarmersMarketsComponent
+    FarmersMarketsComponent,
+    TodaysGoalComponent
   ],
   imports: [
     // Modules are imported here.
