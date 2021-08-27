@@ -1,1 +1,38 @@
-<p>register works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()"
+      class="box" id="registerForm">
+  <label for="firstName" class="block labelTop">First Name</label>
+  <input type="text" id="firstName"
+          formControlName="firstName" tabindex="1"
+          placeholder="Enter your first name here.">
+  <p *ngIf="!registerForm.controls['firstName'].valid && registerForm.controls['firstName'].touched"
+     class="formMessage">Please enter a first name.</p>
+  <label for="email" class="block labelTop">Email</label>
+  <input type="email" id="email" formControlName="email"
+          placeholder="Enter your email address here."
+          minlength="5" tabindex="2">
+  <p *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched"
+     class="formMessage">Please enter an email.</p>
+  <section id="genderFields">
+      <label for="sexF">
+          <input type="radio" name="gender" id="sexF"
+                  value="F" class="radioLg" formControlName="gender" tabindex="3">Female</label>
+      <label for="sexM">
+          <input type="radio" name="gender" id="sexM" formControlName="gender" tabindex="4" value="M" class="radioLg"/>Male
+      </label>
+  </section>
+  <p *ngIf="!registerForm.controls['gender'].valid && registerForm.controls['gender'].touched"
+     class="formMessage">Please select a gender.</p>
+  <label for="ageGroup" class="block labelTop">Age Group</label>
+  <select id="ageGroup" size="1" formControlName="ageGroup" tabindex="5">
+      <option *ngFor="let group of ageGroups;" value="{{this.group}}">{{this.group}}</option>
+  </select>
+  <p *ngIf="!registerForm.controls['ageGroup'].valid && registerForm.controls['ageGroup'].touched"
+     class="formMessage">Please select an Age Group.</p>
+  <input type="submit"
+         tabindex="7"
+         id="register-user"
+         value="Register"
+         class="fpButton box-extra">
+</form>
+<p>Form Value: {{ registerForm.value | json }}</p>
+<p>Form Status: {{ registerForm.status }}</p>

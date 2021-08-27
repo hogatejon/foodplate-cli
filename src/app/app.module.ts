@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { FoodGroupsModule } from './food-groups/food-groups.module';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeBtnComponent } from './home-btn/home-btn.component';
@@ -16,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
 import { DefaultComponent } from './components/default/default.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { FarmersMarketsComponent } from './farmers-markets/farmers-markets.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { FoodGroupsModule } from './food-groups/food-groups.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FarmersMarketsComponent } from './farmers-markets/farmers-markets.compo
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    FoodGroupsModule
+    FoodGroupsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
