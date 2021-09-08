@@ -16,7 +16,7 @@ export class UserService {
     '',
     '',
     '', {}, {
-    fruitMet: false,
+    fruitMet: true,
     vegMet: false,
     proteinMet: false,
     grainMet: false,
@@ -34,6 +34,7 @@ export class UserService {
       this.currentUser = new BehaviorSubject(user);
       return user;
     } else {
+      this.user.reqsStatus.fruitMet = true;
       return this.user;
     }
   }

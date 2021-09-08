@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   ];
   registerForm: FormGroup;
   ngDestroyed$ = new Subject();
+  submit: boolean = false;
 
   constructor(private readonly fb: FormBuilder,
               private readonly router: Router,
@@ -47,9 +48,16 @@ export class RegisterComponent implements OnInit {
     this.ngDestroyed$.next();
   }
 
+  canDeactivate(): boolean {
+    return !this.registerForm.touched;
+  }
+
   onSubmit() {
+    this.submit = true;
     this.userService.updateUser(this.registerForm.value);
     UserService.storeLocalUser(this.registerForm.value);
+    this.router.navigate(['food-plate']);
+
   }
 
 }
