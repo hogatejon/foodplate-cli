@@ -17,9 +17,9 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { FarmersMarketsComponent } from './farmers-markets/farmers-markets.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FoodGroupsModule } from './food-groups/food-groups.module';
 import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
 import { FoodComponent } from './food/food.component';
+import { GoalsComponent } from './goals/goals.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +37,14 @@ import { FoodComponent } from './food/food.component';
     ExercisesComponent,
     FarmersMarketsComponent,
     TodaysGoalComponent,
-    FoodComponent
+    FoodComponent,
+    GoalsComponent
   ],
   imports: [
     // Modules are imported here.
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    FoodGroupsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
