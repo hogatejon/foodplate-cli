@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FoodGroupsComponent } from './food-groups.component';
 import { FoodDetailModule } from './food-detail/food-detail.module';
 
-
-
 @NgModule({
   declarations: [
     FoodGroupsComponent

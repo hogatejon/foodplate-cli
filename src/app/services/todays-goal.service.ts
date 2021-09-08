@@ -13,7 +13,6 @@ export class TodaysGoalService {
 
   sendGoal(goal: string) {
     this.subject.next(goal);
-    console.log(goal);
   }
 
   clearGoal() {

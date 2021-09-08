@@ -29,11 +29,9 @@ export class FoodComponent implements OnInit, OnDestroy {
   }
 
   handleError(err) {
-    console.log(err);
   }
 
   displayFoods(group) {
-    console.log('displayed');
     if (group === 'allFoods') {
       this.foodListByGroup = this.foodList;
     } else if (group !== 'allFoods') {
@@ -48,11 +46,10 @@ export class FoodComponent implements OnInit, OnDestroy {
       const group = food.group;
       this.foodGroups.add(group);
     });
-    console.log(this.foodGroups);
   }
 
   showNutrients(food: Food) {
-    console.log(food.nutrients);
+    // console.log(food.nutrients);
   }
 
   private subscribeToFood() {

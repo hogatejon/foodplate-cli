@@ -40,7 +40,6 @@ export class RegisterComponent implements OnInit {
     });
 
     this.registerForm.valueChanges.pipe(takeUntil(this.ngDestroyed$)).subscribe(value => {
-      console.log(value);
     });
   }
 

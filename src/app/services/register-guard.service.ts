@@ -15,7 +15,6 @@ export class RegisterGuardService implements CanActivate {
 
   canActivate(): boolean {
     this.currentUser = this.userService.getUser();
-    console.log(this.currentUser);
     if (this.currentUser.registered === false) {
       this.router.navigate(['register']);
       alert('You haven\'t registered yet!');

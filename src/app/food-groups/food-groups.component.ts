@@ -18,7 +18,6 @@ export class FoodGroupsComponent implements OnInit {
 
   ngOnInit(): void {
     this.foodGroups = this.foodGroupsService.getFoodGroups();
-    console.log(this.foodGroups);
   }
 
   showGroup(group): void {
